@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Persona;
+use App\Models\Estacionamiento;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Registro extends Model
 {
@@ -21,7 +23,7 @@ class Registro extends Model
       
     ];
 
-        public function persona()
+    public function persona()
         {
             return $this->hasOne(Persona::class, 'rut', 'rut');
         }

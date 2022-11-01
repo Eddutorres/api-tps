@@ -7,79 +7,59 @@ use Illuminate\Http\Request;
 
 class RegistroController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $registro = Registro::all();
+        return $registro;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $registro = new Registro();
+        $registro->fecha = $request->fecha;
+        $registro->codigo_est = $request->codigo_est;
+        $registro->hora_ingreso = $request->hora_ingreso;
+        $registro->rut = $request->rut;
+        $registro->patente = $request->patente;
+        $registro->save();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Registro  $registro
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Registro $registro)
+    public function registroXpatente($patente)
     {
-        //
+        $registro = Registro::where('patente', $patente)->get();
+        return $registro;
+    }
+    public function registroXrut($rut)
+    {
+        $registro = Registro::where('rut', $rut)->get();
+        return $registro;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Registro  $registro
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Registro $registro)
+    public function registroXfecha($fecha)
     {
-        //
+        $registro = Registro::where('fecha', $fecha)->get();
+        return $registro;
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Registro  $registro
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Registro $registro)
+    public function regSalida(Request $request, $id)
     {
-        //
+        $registro = Registro::find($id);
+       
+        $registro->hora_salida = $request->hora_salida;
+        $registro->save();
+        return $registro;
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Registro  $registro
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Registro $registro)
+    public function modUbicacion(Request $request, $id)
     {
-        //
+        $registro = Registro::find($id);
+       
+        $registro->codigo_est = $request->codigo_est;
+        $registro->save();
+        return $registro;
+    }
+    public function destroy($id)
+    {
+        $registro = Registro::destroy($id);
+        return $registro;
     }
 }

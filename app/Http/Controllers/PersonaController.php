@@ -5,83 +5,54 @@ namespace App\Http\Controllers;
 use App\Models\Persona;
 use Illuminate\Http\Request;
 
+
 class PersonaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function index()
     {
-        //
         $persona = Persona::all();
         return $persona;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $persona = new Persona();
+        $persona->rut = $request->rut;
+        $persona->nombre1 = $request->nombre1;
+        $persona->nombre2 = $request->nombre2;
+        $persona->apellido1 = $request->apellido1;
+        $persona->apellido2 = $request->apellido2;
+        $persona->telefono = $request->telefono;
+        $persona->email = $request->email;
+        $persona->empresa = $request->empresa;
+        $persona->save();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Persona  $persona
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Persona $persona)
+    public function show($rut)
     {
-        //
+        $persona = Persona::where('rut', $rut)->get();
+        return $persona;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Persona  $persona
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Persona $persona)
+    public function update(Request $request, $id)
     {
-        //
+        $persona = Persona::find($id);
+       
+        $persona->nombre1 = $request->nombre1;
+        $persona->nombre2 = $request->nombre2;
+        $persona->apellido1 = $request->apellido1;
+        $persona->apellido2 = $request->apellido2;
+        $persona->telefono = $request->telefono;
+        $persona->email = $request->email;
+        $persona->empresa = $request->empresa;
+        $persona->save();
+        return $persona;
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Persona  $persona
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Persona $persona)
+ 
+    public function destroy($id)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Persona  $persona
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Persona $persona)
-    {
-        //
+        $persona = Persona::destroy($id);
+        return $persona;
     }
 }
