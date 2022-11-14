@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->String('patente')->unique();
             $table->string('rut_persona');
-            
             $table->foreign('rut_persona')
                   ->references('rut')
                   ->on('personas')

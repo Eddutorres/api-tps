@@ -18,12 +18,12 @@ class RegistroController extends Controller
         $registro = new Registro();
         $registro->fecha = $request->fecha;
         $registro->codigo_est = $request->codigo_est;
+        $registro->estado_est = $request->estado_est;
         $registro->hora_ingreso = $request->hora_ingreso;
         $registro->rut = $request->rut;
         $registro->patente = $request->patente;
         $registro->save();
     }
-
     public function registroXpatente($patente)
     {
         $registro = Registro::where('patente', $patente)->get();
@@ -61,7 +61,15 @@ class RegistroController extends Controller
         $registro->save();
         return $registro;
     }
-    public function destroy($id)
+        public function modEstado(Request $request, $id)
+    {
+        $registro = Registro::find($id);
+       
+        $registro->estado_est = $request->estado_est;
+        $registro->save();
+        return $registro;
+    }
+     public function destroy($id)
     {
         $registro = Registro::destroy($id);
         return $registro;

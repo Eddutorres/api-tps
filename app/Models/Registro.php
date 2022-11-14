@@ -16,6 +16,7 @@ class Registro extends Model
         'id',
         'fecha',
         'codigo_est',
+        'estado_est',
         'hora_ingreso',
         'hora_salida',
         'rut',
@@ -23,13 +24,4 @@ class Registro extends Model
       
     ];
 
-    public function persona()
-        {
-            return $this->hasOne(Persona::class, 'rut', 'rut');
-        }
-
-        public function estacionamiento()
-        {
-            return $this->hasOne(Estacionamiento::class, 'id_est', 'id_est');
-        }
 }

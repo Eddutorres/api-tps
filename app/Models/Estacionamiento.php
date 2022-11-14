@@ -13,8 +13,7 @@ class Estacionamiento extends Model
 
         'id',
         'codigo',
-        'sector',
-        'estado'
+        'sector'
 
     ];
 }

@@ -17,12 +17,12 @@ return new class extends Migration
             $table->id();
             $table->date('fecha');
             $table->string('codigo_est');
+            $table->boolean('estado_est');
             $table->time('hora_ingreso');
             $table->time('hora_salida')->nullable();
             $table->string('rut');
             $table->string('patente');
             $table->timestamps();
-
             $table->foreign('codigo_est')->references('codigo')->on('estacionamientos');
             $table->foreign('rut')->references('rut')->on('personas');
         });

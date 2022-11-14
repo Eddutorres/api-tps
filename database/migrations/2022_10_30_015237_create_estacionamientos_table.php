@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->string('codigo')->unique();
             $table->String('sector');
-            $table->boolean('estado');
             $table->timestamps();
         });
     }

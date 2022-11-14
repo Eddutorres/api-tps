@@ -18,7 +18,6 @@ class EstacionamientoController extends Controller
         $estacionamiento = new Estacionamiento();
         $estacionamiento->codigo = $request->codigo;
         $estacionamiento->sector = $request->sector;
-        $estacionamiento->estado = $request->estado;
         $estacionamiento->save();
     }
 
@@ -28,14 +27,7 @@ class EstacionamientoController extends Controller
         return $estacionamiento;
     }
 
-    public function update(Request $request, $id)
-    {
-        $estacionamiento = Estacionamiento::find($id);
-       
-        $estacionamiento->estado = $request->estado;
-        $estacionamiento->save();
-        return $estacionamiento;
-    }
+
  
     public function destroy($id)
     {

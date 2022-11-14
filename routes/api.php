@@ -6,7 +6,9 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PersonaController;
 use App\Http\Controllers\RegistroController;
 use App\Http\Controllers\VehiculoController;
+use App\Http\Controllers\JoinregistroController;
 use App\Http\Controllers\EstacionamientoController;
+use App\Http\Controllers\JoinestacionamientoController;
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
@@ -57,3 +59,8 @@ Route::controller(RegistroController::class)->group(function(){
     Route::put('/modificarUbicacion/{id}','ModUbicacion');
     Route::delete('/eliminarRegistro/{id}','destroy');
 });
+
+Route::get('/joinreg', [JoinregistroController::class,'todosReg']);
+Route::get('/joinreg/{sector}', [JoinregistroController::class,'sectorReg']);
+Route::get('/joinest', [JoinestacionamientoController::class,'todosEst']);
+Route::get('/joinest/{sector}', [JoinestacionamientoController::class,'sectorEst']);
