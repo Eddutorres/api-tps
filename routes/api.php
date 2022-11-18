@@ -61,6 +61,8 @@ Route::controller(RegistroController::class)->group(function(){
 });
 
 Route::get('/joinreg', [JoinregistroController::class,'todosReg']);
+Route::get('/reporte/{sector}/{fecha_ini}/{fecha_fin}', [JoinregistroController::class,'reportes']);
 Route::get('/joinreg/{sector}', [JoinregistroController::class,'sectorReg']);
+Route::get('/patentereg/{patente}/{fecha}', [JoinregistroController::class,'patenteReg']);
 Route::get('/joinest', [JoinestacionamientoController::class,'todosEst']);
 Route::get('/joinest/{sector}', [JoinestacionamientoController::class,'sectorEst']);
