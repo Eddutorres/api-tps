@@ -11,7 +11,7 @@ class JoinregistroController extends Controller
     function sectorReg($sector){
                
         $registros = Registro::leftjoin('estacionamientos', 'estacionamientos.codigo', '=', 'registros.codigo_est')
-                            ->join('personas', 'personas.rut', '=', 'registros.rut')
+                            ->leftjoin('personas', 'personas.rut', '=', 'registros.rut')
                             ->where('estacionamientos.sector',$sector)
                             ->get();
                             return $registros;

@@ -9,7 +9,7 @@ class JoinestacionamientoController extends Controller
 {
     function sectorEst($sector){
         
-        $estacionamiento = Estacionamiento::leftjoin('registros', 'registros.codigo_est', '=', 'estacionamientos.codigo')
+        $estacionamiento = Estacionamiento::leftjoin('registros','registros.codigo_est', '=', 'estacionamientos.codigo')
                             ->leftjoin('personas', 'personas.rut', '=', 'registros.rut')
                             ->where('estacionamientos.sector',$sector)
                             ->get();
