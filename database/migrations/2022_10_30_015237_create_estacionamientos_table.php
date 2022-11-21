@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('estacionamientos', function (Blueprint $table) {
-            $table->id();
+            $table->id('est_id');
             $table->string('codigo')->unique();
             $table->String('sector');
             $table->timestamps();

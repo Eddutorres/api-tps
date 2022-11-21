@@ -11,7 +11,7 @@ class Persona extends Model
 
     protected $fillable = [
 
-        'id',
+        'per_id',
         'rut',
         'nombre1',
         'nombre2',

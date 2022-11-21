@@ -43,5 +43,13 @@ class JoinregistroController extends Controller
                             ->get();
                             return $patentes;
     }
-    
+    function idReg($id){
+               
+        $registros = Registro::join('estacionamientos', 'estacionamientos.codigo', '=', 'registros.codigo_est')
+                            ->join('personas', 'personas.rut', '=', 'registros.rut')
+                            ->where('registros.id',$id)
+                            ->get();
+                            return $registros;
+                            //return dd($registros);
+    }
 }

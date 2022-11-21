@@ -11,7 +11,7 @@ class Estacionamiento extends Model
 
     protected $fillable = [
 
-        'id',
+        'est_id',
         'codigo',
         'sector'
 

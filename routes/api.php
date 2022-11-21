@@ -55,11 +55,12 @@ Route::controller(RegistroController::class)->group(function(){
     Route::get('/registroPatente/{patente}','registroXpatente');
     Route::get('/registro/{id}','registroXid');
     Route::get('/registroRut/{rut}','registroXrut');
-    Route::put('/registrarSalida/{id}','regSalida');
+    Route::put('/registrarSalida/{reg_id}','regSalida');
     Route::put('/modificarUbicacion/{id}','ModUbicacion');
     Route::delete('/eliminarRegistro/{id}','destroy');
 });
 
+Route::get('/joinid/{id}', [JoinregistroController::class,'idReg']);
 Route::get('/joinreg', [JoinregistroController::class,'todosReg']);
 Route::get('/reporte/{sector}/{fecha_ini}/{fecha_fin}', [JoinregistroController::class,'reportes']);
 Route::get('/joinreg/{sector}', [JoinregistroController::class,'sectorReg']);

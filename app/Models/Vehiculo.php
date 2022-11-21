@@ -11,7 +11,7 @@ class Vehiculo extends Model
 
     protected $fillable = [
 
-        'id',
+        'pat_id',
         'patente',
         'rut_persona'
   

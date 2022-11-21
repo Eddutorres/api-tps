@@ -49,6 +49,7 @@ class RegistroController extends Controller
     {
         $registro = Registro::find($id);
        
+        $registro->estado_est = $request->estado_est;
         $registro->hora_salida = $request->hora_salida;
         $registro->save();
         return $registro;
