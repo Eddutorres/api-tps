@@ -4,10 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\Registro;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class JoinregistroController extends Controller
 {
 
+    function sectorRegPrueba($sector){
+               
+        $registros = Registro::leftjoin('estacionamientos', 'estacionamientos.codigo', '=', 'registros.codigo_est')
+                            ->where('estacionamientos.sector',$sector)
+                            ->whereDate('registros.fecha','2022-11-23')
+                            ->get();
+                            //return $registros;
+                            return dd($registros);
+    }
     function sectorReg($sector){
                
         $registros = Registro::leftjoin('estacionamientos', 'estacionamientos.codigo', '=', 'registros.codigo_est')
@@ -15,7 +25,23 @@ class JoinregistroController extends Controller
                             ->where('estacionamientos.sector',$sector)
                             ->get();
                             return $registros;
+                            //return dd($registros);
     }
+    function sectorRegTest2($sector,$fecha){
+
+        $estacionamientos = DB::table('estacionamientos');
+
+        $estacionamientos = $estacionamientos->where('estacionamientos.sector',$sector);
+
+        $registros = $estacionamientos
+            ->select('estacionamientos.*','registros.*')
+            ->leftJoin('registros','registros.codigo_est','estacionamientos.codigo')
+            ->where('registros.fecha',$fecha)
+            ->get();
+               
+            return dd($registros);
+    }
+
 
     function todosReg(){
         

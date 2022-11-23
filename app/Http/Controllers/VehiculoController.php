@@ -26,6 +26,11 @@ class VehiculoController extends Controller
         $vehiculo = Vehiculo::where('patente', $patente)->get();
         return $vehiculo;
     }
+    public function patenteRut($rut_persona)
+    {
+        $vehiculo = Vehiculo::where('rut_persona', $rut_persona)->get();
+        return $vehiculo;
+    }
 
     public function update(Request $request, $id)
     {

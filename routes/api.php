@@ -48,6 +48,8 @@ Route::controller(VehiculoController::class)->group(function(){
     Route::get('/patente/{patente}','show');
     Route::put('/patente/{id}','update');
     Route::delete('/patente/{id}','destroy');
+    Route::get('/patenteRut/{rutpersona}','patenteRut');
+    
 });
 Route::controller(RegistroController::class)->group(function(){
     Route::get('/registros','index');
@@ -64,6 +66,7 @@ Route::get('/joinid/{id}', [JoinregistroController::class,'idReg']);
 Route::get('/joinreg', [JoinregistroController::class,'todosReg']);
 Route::get('/reporte/{sector}/{fecha_ini}/{fecha_fin}', [JoinregistroController::class,'reportes']);
 Route::get('/joinreg/{sector}', [JoinregistroController::class,'sectorReg']);
+//Route::get('/joinreg/{sector}/{fecha}', [JoinregistroController::class,'sectorReg']);
 Route::get('/patentereg/{patente}/{fecha}', [JoinregistroController::class,'patenteReg']);
 Route::get('/joinest', [JoinestacionamientoController::class,'todosEst']);
 Route::get('/joinest/{sector}', [JoinestacionamientoController::class,'sectorEst']);
