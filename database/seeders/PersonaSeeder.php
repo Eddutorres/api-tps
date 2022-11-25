@@ -22,18 +22,18 @@ class PersonaSeeder extends Seeder
             'nombre2' => "Andres",
             'apellido1' => "Torres",
             'apellido2' => "Torres",
-            'telefono' => "12345678",
+            'telefono' => "978284222",
             'email' => "ed.torres@duocuc.cl",
             'empresa' => "Tpsv"
         ]);
 
         DB::table('personas')->insert([
-            'rut' => "13765901-1",
+            'rut' => "13765961-1",
             'nombre1' => "Paula",
             'nombre2' => "Mariana",
             'apellido1' => "Olivares",
             'apellido2' => "Ruiz",
-            'telefono' => "12345645",
+            'telefono' => "89756415",
             'email' => "paula@mail.cl",
             'empresa' => "Ultraport"
         ]);

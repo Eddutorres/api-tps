@@ -39,6 +39,7 @@ Route::controller(EstacionamientoController::class)->group(function(){
     Route::get('/estacionamientos','index');
     Route::post('/estacionamiento','store');
     Route::get('/estacionamiento/{codigo}','show');
+    Route::get('/estsector/{sector}','estSector');
     Route::put('/estacionamiento/{id}','update');
     Route::delete('/estacionamiento/{id}','destroy');
 });
@@ -57,6 +58,7 @@ Route::controller(RegistroController::class)->group(function(){
     Route::get('/registroPatente/{patente}','registroXpatente');
     Route::get('/registro/{id}','registroXid');
     Route::get('/registroRut/{rut}','registroXrut');
+    Route::get('/registroFecha/{fecha}','registroXfecha');
     Route::put('/registrarSalida/{reg_id}','regSalida');
     Route::put('/modificarUbicacion/{id}','ModUbicacion');
     Route::delete('/eliminarRegistro/{id}','destroy');

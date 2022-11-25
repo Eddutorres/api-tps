@@ -37,7 +37,9 @@ class RegistroController extends Controller
 
     public function registroXfecha($fecha)
     {
-        $registro = Registro::where('fecha', $fecha)->get();
+        $registro = Registro::where('fecha', $fecha)
+                            ->where('estado_est', 1)
+                            ->get();
         return $registro;
     }
     public function registroXid($id)

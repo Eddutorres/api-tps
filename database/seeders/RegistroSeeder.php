@@ -37,7 +37,7 @@ class RegistroSeeder extends Seeder
             'codigo_est' => "V01",
             'estado_est' => "1",
             'hora_ingreso' => "23:02",
-            'rut' => "13765901-1",
+            'rut' => "13765961-1",
             'Patente' => "HU5678",
         ]);
         DB::table('registros')->insert([
@@ -45,7 +45,7 @@ class RegistroSeeder extends Seeder
             'codigo_est' => "V02",
             'estado_est' => "1",
             'hora_ingreso' => "23:03",
-            'rut' => "13765901-1",
+            'rut' => "13765961-1",
             'Patente' => "GBHY78",
         ]);
 

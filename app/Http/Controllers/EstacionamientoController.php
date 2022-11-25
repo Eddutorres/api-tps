@@ -27,7 +27,11 @@ class EstacionamientoController extends Controller
         return $estacionamiento;
     }
 
-
+    public function estSector($sector)
+    {
+        $estacionamiento = Estacionamiento::where('sector', $sector)->get();
+        return $estacionamiento;
+    }
  
     public function destroy($id)
     {
