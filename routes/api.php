@@ -40,8 +40,8 @@ Route::controller(EstacionamientoController::class)->group(function(){
     Route::post('/estacionamiento','store');
     Route::get('/estacionamiento/{codigo}','show');
     Route::get('/estsector/{sector}','estSector');
-    Route::put('/estacionamiento/{id}','update');
-    Route::delete('/estacionamiento/{id}','destroy');
+    Route::put('/estacionamiento/{est_id}','update');
+    Route::delete('/estacionamiento/{est_id}','eliminar');
 });
 Route::controller(VehiculoController::class)->group(function(){
     Route::get('/patentes','index');

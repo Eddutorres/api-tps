@@ -26,11 +26,11 @@ class VehiculoSeeder extends Seeder
         ]);
         DB::table('vehiculos')->insert([
             'patente' => "HU5678",
-            'rut_persona' => "13765901-1",
+            'rut_persona' => "13765961-1",
         ]);
         DB::table('vehiculos')->insert([
             'patente' => "GBHY78",
-            'rut_persona' => "13765901-1",
+            'rut_persona' => "13765961-1",
         ]);
     }
 }

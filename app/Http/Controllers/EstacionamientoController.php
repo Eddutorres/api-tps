@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Estacionamiento;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class EstacionamientoController extends Controller
 {
@@ -33,10 +34,10 @@ class EstacionamientoController extends Controller
         return $estacionamiento;
     }
  
-    public function destroy($id)
+    public function eliminar($est_id)
     {
         //
-        $estacionamiento = Estacionamiento::destroy($id);
+        $estacionamiento = Estacionamiento::where('est_id', $est_id)->delete();
         return $estacionamiento;
     }
 
