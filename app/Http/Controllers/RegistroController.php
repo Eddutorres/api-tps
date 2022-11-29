@@ -24,9 +24,12 @@ class RegistroController extends Controller
         $registro->patente = $request->patente;
         $registro->save();
     }
-    public function registroXpatente($patente)
+    public function registroXpatente($patente, $fecha, $estado_est)
     {
-        $registro = Registro::where('patente', $patente)->get();
+        $registro = Registro::where('patente', $patente)
+                            ->where('fecha', $fecha)
+                            ->where('estado_est', $estado_est)
+                            ->get();
         return $registro;
     }
     public function registroXrut($rut)

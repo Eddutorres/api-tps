@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Persona;
 use App\Models\Estacionamiento;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;

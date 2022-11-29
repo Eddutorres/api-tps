@@ -19,14 +19,10 @@ Route::post('register', [AuthController::class,'register']);
 
 Route::post('login', [AuthController::class,'login']);
 
-
-
 Route::middleware(['auth:sanctum'])->group(function () {
     
     Route::get('logout', [AuthController::class,'logout']);
 });
-
-
 
 Route::controller(PersonaController::class)->group(function(){
     Route::get('/personas','index');
@@ -55,7 +51,7 @@ Route::controller(VehiculoController::class)->group(function(){
 Route::controller(RegistroController::class)->group(function(){
     Route::get('/registros','index');
     Route::post('/registro','store');
-    Route::get('/registroPatente/{patente}','registroXpatente');
+    Route::get('/registroPatente/{patente}/{fecha}/{estado_est}','registroXpatente');
     Route::get('/registro/{id}','registroXid');
     Route::get('/registroRut/{rut}','registroXrut');
     Route::get('/registroFecha/{fecha}','registroXfecha');
